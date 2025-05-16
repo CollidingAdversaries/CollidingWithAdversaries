@@ -35,7 +35,7 @@ print(f"Fooling Ratio of adversarial samples: {adv_fr}")
 mean_avg_dist = np.mean(np.mean(np.abs(x_clean - x_adv), axis=1))
 print(f"Mean Average Distance: {mean_avg_dist}")
 
-score = adv_fr - (5 * mean_avg_dist)
+score = adv_fr * np.exp(-20 * mean_avg_dist)
 print(f"Final Score: {score}")
 
 # Create  list of triples (clean, adv, label)
